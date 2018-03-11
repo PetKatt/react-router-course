@@ -1,3 +1,16 @@
 .App {
   text-align: center;
+  margin: auto;
+}
+
+.App ul {
+	list-style-type: square;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+}
+
+.App ul>li {
+	margin: 5px auto;
 }
