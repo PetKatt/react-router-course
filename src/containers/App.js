@@ -17,11 +17,18 @@ const users = [
 const find = (id) => users.find((u) => u.id === id);
 
 const Person = ({ match }) => {
-	const person = find(match.params.id);
+	const person = find(Number(match.params.id));
 
 	return (
 		<div>
-			<h3>{person.name}</h3>
+			<h3>{person.name}'s Friends</h3>
+			<ul>
+				{person.friends.map((p) => (
+					<li key={p}><Link to={`${match.url}/${p}`}>{find(p).name}</Link></li>
+				))}
+			</ul>
+
+			<Route path={`${match.url}/:id`} component={Person} />
 		</div>
 	);
 };
