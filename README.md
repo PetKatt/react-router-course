@@ -11,6 +11,7 @@ Check it out!
 5. [Preventing Transitions](https://reacttraining.com/react-router/web/example/preventing-transitions)
 6. [No Match (404)](https://reacttraining.com/react-router/web/example/no-match)
 7. [Recursive Paths](https://reacttraining.com/react-router/web/example/recursive-paths)
+8. [Sidebar](https://reacttraining.com/react-router/web/example/sidebar)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
