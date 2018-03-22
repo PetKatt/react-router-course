@@ -17,7 +17,13 @@ class Form extends Component {
 		const { isBlocking } = this.state;
 
 		return (
-			<form>
+			<form onSubmit={(event) => {
+				event.preventDefault();
+				event.target.reset();
+				this.setState(() => ({
+					isBlocking: false
+				}))
+			}}>
 				FORM
 				<Prompt
 					when={isBlocking}
@@ -31,6 +37,27 @@ class Form extends Component {
 						: "Nope."
 					}
 				</p>
+
+				<p>
+					<input
+						size="50"
+						placeholder="type something to block transition"
+						onChange={(event) => {
+							const isBlocking = event.target.value.length > 0;
+							this.setState(() => ({
+								isBlocking
+							}));
+						}}
+					/>
+				</p>
+
+				<p>
+					<button>
+						Submit to stop blocking
+					</button>
+				</p>
+
+
 
 
 			</form>
