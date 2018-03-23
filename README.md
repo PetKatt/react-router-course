@@ -14,6 +14,7 @@ Check it out!
 8. [Sidebar](https://reacttraining.com/react-router/web/example/sidebar)
 9. [Animated Transitions](https://reacttraining.com/react-router/web/example/animated-transitions)
 10. [Ambiguous Matches](https://reacttraining.com/react-router/web/example/ambiguous-matches)
+11. [Route Config](https://reacttraining.com/react-router/web/example/route-config)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
