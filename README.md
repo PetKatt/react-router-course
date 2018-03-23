@@ -13,6 +13,7 @@ Check it out!
 7. [Recursive Paths](https://reacttraining.com/react-router/web/example/recursive-paths)
 8. [Sidebar](https://reacttraining.com/react-router/web/example/sidebar)
 9. [Animated Transitions](https://reacttraining.com/react-router/web/example/animated-transitions)
+10. [Ambiguous Matches](https://reacttraining.com/react-router/web/example/ambiguous-matches)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
