@@ -6,6 +6,10 @@ import {
 	Link,
 	Redirect
 } from "react-router-dom";
+import {
+	TransitionGroup,
+	CSSTransition
+} from "react-transition-group";
 
 import './App.css';
 
@@ -13,24 +17,62 @@ class App extends Component {
   render() {
     return (
     	<Router>
-	      <div style={styles.fill}>
+    		<Route render={({ location }) => console.log(location) || (
+    			<div style={styles.fill}>
+		      	<Route path="/" exact render={() => (
+		      		<Redirect to="/hsl/10/90/50" />
+		      	)} />
 
-	      	<ul style={styles.nav}>
-	      		<NavLink to="/hsl/10/90/50">Red</NavLink>
-	      		<NavLink to="/hsl/120/100/40">Green</NavLink>
-	      		<NavLink to="/rgb/33/150/243">Blue</NavLink>
-	      		<NavLink to="/rgb/240/98/146">Pink</NavLink>
-	      	</ul>
+		      	<ul style={styles.nav}>
+		      		<NavLink to="/hsl/10/90/50">Red</NavLink>
+		      		<NavLink to="/hsl/120/100/40">Green</NavLink>
+		      		<NavLink to="/rgb/33/150/243">Blue</NavLink>
+		      		<NavLink to="/rgb/240/98/146">Pink</NavLink>
+		      	</ul>
 
-	      	<div style={styles.content}>
-	      		
-	      	</div>
-
-	      </div>
+		      	<div style={styles.content}>
+		      		<TransitionGroup>
+		      			<CSSTransition key={location.key} timeout={300} classNames="fade">
+				      		<Switch location={location}>
+					      		<Route path="/hsl/:h/:s/:l" component={HSL} />
+					      		<Route path="/rgb/:r/:g/:b" component={RGB} />
+					      		<Route render={() => <div>Not Found ;/</div>} />
+					      	</Switch>
+					      </CSSTransition>
+				      </TransitionGroup>
+		      	</div>
+		      </div>
+    		)} />   
 	    </Router>
     );
   }
 }
+
+const HSL = ({ match }) => {
+	const { params } = match;
+
+	return (
+		<div style={{
+			...styles.hsl,
+			background: `hsl(${params.h}, ${params.s}%, ${params.l}%)`
+		}}>
+			hsl({params.h}, {params.s}%, {params.l}%)
+		</div>
+	);
+};
+
+const RGB = ({ match }) => {
+	const { params } = match;
+
+	return (
+		<div style={{
+			...styles.rgb,
+			background: `rgb(${params.r}, ${params.g}, ${params.b})`
+		}}>
+			rgb({params.r}, {params.g}, {params.b})
+		</div>
+	);
+};
 
 const NavLink = (props) => (
 	<li style={styles.navItem}>
@@ -69,6 +111,20 @@ styles.navItem = {
 	flex: 1,
 	listStyleType: "none",
 	padding: "10px"
+};
+
+styles.hsl = {
+	...styles.fill,
+	color: "white",
+	paddingTop: "20px",
+	fontSize: "30px"
+};
+
+styles.rgb = {
+	...styles.fill,
+	color: "white",
+	paddingTop: "20px",
+	fontSize: "30px"
 };
 
 export default App;
