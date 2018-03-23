@@ -2,7 +2,7 @@ This code is written based on the examples from [React Training/React Router](ht
 
 It covers even a lot more!
 
-#Choose a branch and inspect the code!
+# Choose a branch and inspect the code!
 
 1. [Basic](https://reacttraining.com/react-router/web/example/basic) 
 2. [URL Parameters](https://reacttraining.com/react-router/web/example/url-params)
